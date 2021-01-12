@@ -106,10 +106,21 @@ namespace Calculadora
 
                 case "+":
 
-                    resultado = numUm + numDois; ;
+                    resultado = numUm + numDois;
+                    break;
+
+                case "^":
+
+                    resultado = CalcularPotencia(numUm, numDois);
                     break;
             }
             txtDisplay.Text = resultado.ToString().Replace(",", ".");
+        }
+
+
+        public Double CalcularPotencia(Double valorBase, Double valorExpoente)
+        {
+            return Math.Pow(valorBase, valorExpoente);
         }
 
 
@@ -274,19 +285,34 @@ namespace Calculadora
 
         }
 
-        private void button21_Click(object sender, EventArgs e)
+        private void btnRemoveUltimoDigito_Click(object sender, EventArgs e)
         {
+            int tamanho = txtDisplay.Text.Trim().Length;
+            String texto = txtDisplay.Text.Trim();
+            txtDisplay.Clear();
 
+            for (int i = 0; i < tamanho - 1; i++)
+            {
+                txtDisplay.Text = txtDisplay.Text + texto[i]; 
+            }
         }
 
-        private void button8_Click(object sender, EventArgs e)
+        private void btnPotenciacao_Click(object sender, EventArgs e)
         {
-
+            AddCaracterOperacao("^");
         }
 
-        private void button22_Click(object sender, EventArgs e)
+        private void btnElevadoAoQuadrado_Click(object sender, EventArgs e)
         {
+            if (!txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+                numUm = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
+                numDois = 2;
+                var resultado = CalcularPotencia(numUm, numDois);
 
+                txtDisplay.Text = resultado.ToString().Replace(",", ".");
+                PressionouIgual = true;
+            }
         }
 
         private void btn5_Click(object sender, EventArgs e)
@@ -321,6 +347,14 @@ namespace Calculadora
         private void byjvxdev_Click(object sender, EventArgs e)
         {
             MessageBox.Show("github.com/jvxdev && linkedin.com/in/jvddm");
+        }
+
+        private void btnMaisMenos_Click(object sender, EventArgs e)
+        {
+            if (!txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+                txtDisplay.Text = (Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ",")) * (-1)).ToString().Replace(",", ".");
+            }
         }
     }
 }

@@ -144,7 +144,7 @@ namespace Calculadora
             this.btnPotenciacao.TabIndex = 7;
             this.btnPotenciacao.Text = "^";
             this.btnPotenciacao.UseVisualStyleBackColor = true;
-            this.btnPotenciacao.Click += new System.EventHandler(this.button8_Click);
+            this.btnPotenciacao.Click += new System.EventHandler(this.btnPotenciacao_Click);
             // 
             // btnDivisao
             // 
@@ -286,7 +286,7 @@ namespace Calculadora
             this.btnRemoveUltimoDigito.TabIndex = 23;
             this.btnRemoveUltimoDigito.Text = "<--";
             this.btnRemoveUltimoDigito.UseVisualStyleBackColor = true;
-            this.btnRemoveUltimoDigito.Click += new System.EventHandler(this.button21_Click);
+            this.btnRemoveUltimoDigito.Click += new System.EventHandler(this.btnRemoveUltimoDigito_Click);
             // 
             // btnElevadoAoQuadrado
             // 
@@ -297,7 +297,7 @@ namespace Calculadora
             this.btnElevadoAoQuadrado.TabIndex = 22;
             this.btnElevadoAoQuadrado.Text = "^2";
             this.btnElevadoAoQuadrado.UseVisualStyleBackColor = true;
-            this.btnElevadoAoQuadrado.Click += new System.EventHandler(this.button22_Click);
+            this.btnElevadoAoQuadrado.Click += new System.EventHandler(this.btnElevadoAoQuadrado_Click);
             // 
             // btnCE
             // 
