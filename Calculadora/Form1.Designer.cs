@@ -67,7 +67,7 @@ namespace Calculadora
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn5_Click);
+            this.btn1.Click += new System.EventHandler(this.btn1_Click);
             this.btn1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn1_Click);
             // 
             // btn2
