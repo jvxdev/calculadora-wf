@@ -67,7 +67,8 @@ namespace Calculadora
             this.btn1.TabIndex = 0;
             this.btn1.Text = "1";
             this.btn1.UseVisualStyleBackColor = true;
-            this.btn1.Click += new System.EventHandler(this.btn1_Click);
+            this.btn1.Click += new System.EventHandler(this.btn5_Click);
+            this.btn1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.btn1_Click);
             // 
             // btn2
             // 
@@ -109,9 +110,9 @@ namespace Calculadora
             this.btnRaizQuadrada.Name = "btnRaizQuadrada";
             this.btnRaizQuadrada.Size = new System.Drawing.Size(58, 41);
             this.btnRaizQuadrada.TabIndex = 4;
-            this.btnRaizQuadrada.Text = "sqrt";
+            this.btnRaizQuadrada.Text = "Sqrt";
             this.btnRaizQuadrada.UseVisualStyleBackColor = true;
-            this.btnRaizQuadrada.Click += new System.EventHandler(this.btn5_Click);
+            this.btnRaizQuadrada.Click += new System.EventHandler(this.btnRaizQuadrada_Click);
             // 
             // btn5
             // 
@@ -122,7 +123,7 @@ namespace Calculadora
             this.btn5.TabIndex = 5;
             this.btn5.Text = "5";
             this.btn5.UseVisualStyleBackColor = true;
-            this.btn5.Click += new System.EventHandler(this.btn5_Click_1);
+            this.btn5.Click += new System.EventHandler(this.btn5_Click);
             // 
             // btn4
             // 
@@ -137,7 +138,7 @@ namespace Calculadora
             // 
             // btnPotenciacao
             // 
-            this.btnPotenciacao.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnPotenciacao.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnPotenciacao.Location = new System.Drawing.Point(270, 155);
             this.btnPotenciacao.Name = "btnPotenciacao";
             this.btnPotenciacao.Size = new System.Drawing.Size(58, 41);
@@ -177,7 +178,7 @@ namespace Calculadora
             this.btn7.TabIndex = 14;
             this.btn7.Text = "7";
             this.btn7.UseVisualStyleBackColor = true;
-            this.btn7.Click += new System.EventHandler(this.btn7_Click_1);
+            this.btn7.Click += new System.EventHandler(this.btn7_Click);
             // 
             // btn8
             // 
@@ -192,14 +193,14 @@ namespace Calculadora
             // 
             // btnUmPorX
             // 
-            this.btnUmPorX.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnUmPorX.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnUmPorX.Location = new System.Drawing.Point(270, 249);
             this.btnUmPorX.Name = "btnUmPorX";
             this.btnUmPorX.Size = new System.Drawing.Size(58, 41);
             this.btnUmPorX.TabIndex = 12;
             this.btnUmPorX.Text = "1/x";
             this.btnUmPorX.UseVisualStyleBackColor = true;
-            this.btnUmPorX.Click += new System.EventHandler(this.button13_Click);
+            this.btnUmPorX.Click += new System.EventHandler(this.btnUmPorX_Click);
             // 
             // btnSubtracao
             // 
@@ -290,7 +291,7 @@ namespace Calculadora
             // 
             // btnElevadoAoQuadrado
             // 
-            this.btnElevadoAoQuadrado.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnElevadoAoQuadrado.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnElevadoAoQuadrado.Location = new System.Drawing.Point(270, 108);
             this.btnElevadoAoQuadrado.Name = "btnElevadoAoQuadrado";
             this.btnElevadoAoQuadrado.Size = new System.Drawing.Size(58, 41);
@@ -325,21 +326,21 @@ namespace Calculadora
             // 
             this.txtDisplay.Enabled = false;
             this.txtDisplay.Font = new System.Drawing.Font("Arial", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDisplay.Location = new System.Drawing.Point(14, 21);
+            this.txtDisplay.Location = new System.Drawing.Point(14, 30);
             this.txtDisplay.MaxLength = 10;
             this.txtDisplay.Name = "txtDisplay";
             this.txtDisplay.Size = new System.Drawing.Size(314, 63);
             this.txtDisplay.TabIndex = 25;
             this.txtDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
-            this.txtDisplay.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.txtDisplay.TextChanged += new System.EventHandler(this.txtDisplay_TextChanged);
             // 
             // byjvxdev
             // 
             this.byjvxdev.AutoSize = true;
-            this.byjvxdev.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.byjvxdev.Location = new System.Drawing.Point(259, 6);
+            this.byjvxdev.Font = new System.Drawing.Font("Malgun Gothic", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.byjvxdev.Location = new System.Drawing.Point(270, 9);
             this.byjvxdev.Name = "byjvxdev";
-            this.byjvxdev.Size = new System.Drawing.Size(68, 12);
+            this.byjvxdev.Size = new System.Drawing.Size(58, 15);
             this.byjvxdev.TabIndex = 26;
             this.byjvxdev.Text = "by jvxdev";
             this.byjvxdev.Click += new System.EventHandler(this.byjvxdev_Click);
@@ -376,6 +377,7 @@ namespace Calculadora
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimizeBox = false;
             this.Name = "Calculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CALCULADORA";

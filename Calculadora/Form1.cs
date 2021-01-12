@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Calculadora
@@ -36,7 +29,7 @@ namespace Calculadora
         }
 
 
-        private void AddCaracterNum(String valorNum)
+        private void addCaracterNum(String valorNum)
         {
             if (PressionouIgual == true)
             {
@@ -56,7 +49,7 @@ namespace Calculadora
         }
 
 
-        private void AddCaracterOperacao(String caracter)
+        private void addCaracterOperacao(String caracter)
         {
             if (!txtDisplay.Text.Trim().Equals(String.Empty))
             {
@@ -73,7 +66,7 @@ namespace Calculadora
             }
             else
             {
-                MessageBox.Show("Informe algum valor antes!");
+                MessageBox.Show("É preciso informar algum valor");
                 return;
             }
         }
@@ -124,68 +117,68 @@ namespace Calculadora
         }
 
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
+        private void txtDisplay_TextChanged(object sender, EventArgs e)
         {
-            
         }
 
 
         private void btn1_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("1");
+            addCaracterNum("1");
         }
 
 
         private void btn2_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("2");
+            addCaracterNum("2");
         }
 
 
         private void btn3_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("3");
+            addCaracterNum("3");
         }
+
 
         private void btn4_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("4");
+            addCaracterNum("4");
         }
 
 
-        private void btn5_Click_1(object sender, EventArgs e)
+        private void btn5_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("5");
+            addCaracterNum("5");
         }
 
 
         private void btn6_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("6");
+            addCaracterNum("6");
         }
 
 
-        private void btn7_Click_1(object sender, EventArgs e)
+        private void btn7_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("7");
+            addCaracterNum("7");
         }
 
 
         private void btn8_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("8");
+            addCaracterNum("8");
         }
 
 
         private void btn9_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("9");
+            addCaracterNum("9");
         }
 
 
         private void btn0_Click(object sender, EventArgs e)
         {
-            AddCaracterNum("0");
+            addCaracterNum("0");
         }
 
 
@@ -216,42 +209,101 @@ namespace Calculadora
         }
 
 
-        private void btn7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-
         private void btnDivisao_Click(object sender, EventArgs e)
         {
-            AddCaracterOperacao("/");
+            addCaracterOperacao("/");
             
         }
 
 
         private void btnMultiplicacao_Click(object sender, EventArgs e)
         {
-            AddCaracterOperacao("*");
+            addCaracterOperacao("*");
         }
 
 
         private void btnSubtracao_Click(object sender, EventArgs e)
         {
-            AddCaracterOperacao("-");
+            addCaracterOperacao("-");
         }
 
 
         private void btnAdicao_Click(object sender, EventArgs e)
         {
-            AddCaracterOperacao("+");
+            addCaracterOperacao("+");
         }
-
-        
 
         private void button19_Click(object sender, EventArgs e)
         {
 
         }
+
+
+        private void btnRemoveUltimoDigito_Click(object sender, EventArgs e)
+        {
+            int tamanho = txtDisplay.Text.Trim().Length;
+            String texto = txtDisplay.Text.Trim();
+            txtDisplay.Clear();
+
+            for (int i = 0; i < tamanho - 1; i++)
+            {
+                txtDisplay.Text = txtDisplay.Text + texto[i]; 
+            }
+        }
+
+
+        private void btnPotenciacao_Click(object sender, EventArgs e)
+        {
+            addCaracterOperacao("^");
+        }
+
+
+        private void btnElevadoAoQuadrado_Click(object sender, EventArgs e)
+        {
+            if (!txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+                numUm = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
+                numDois = 2;
+                var resultado = CalcularPotencia(numUm, numDois);
+
+                txtDisplay.Text = resultado.ToString().Replace(",", ".");
+                PressionouIgual = true;
+            }
+        }
+
+
+        private void btnRaizQuadrada_Click(object sender, EventArgs e)
+        {
+            if (!txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+                numUm = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
+                resultado = Math.Sqrt(numUm);
+
+                txtDisplay.Text = resultado.ToString().Replace(",", ".");
+                PressionouIgual = true;
+            }
+        }
+
+
+        private void btnUmPorX_Click(object sender, EventArgs e)
+        {
+            if (!txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+                numUm = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
+                
+                if (numUm == 0)
+                {
+                    MessageBox.Show("Não é possível dividir por 0");
+                    return;
+                }
+
+                resultado = 1 / numUm;
+
+                txtDisplay.Text = resultado.ToString().Replace(",", ".");
+                PressionouIgual = true;
+            }
+        }
+
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
@@ -261,7 +313,6 @@ namespace Calculadora
                 PressionouIgual = false;
                 return;
             }
-
 
             if (!txtDisplay.Text.Trim().Equals(String.Empty))
             {
@@ -280,45 +331,6 @@ namespace Calculadora
             }
         }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnRemoveUltimoDigito_Click(object sender, EventArgs e)
-        {
-            int tamanho = txtDisplay.Text.Trim().Length;
-            String texto = txtDisplay.Text.Trim();
-            txtDisplay.Clear();
-
-            for (int i = 0; i < tamanho - 1; i++)
-            {
-                txtDisplay.Text = txtDisplay.Text + texto[i]; 
-            }
-        }
-
-        private void btnPotenciacao_Click(object sender, EventArgs e)
-        {
-            AddCaracterOperacao("^");
-        }
-
-        private void btnElevadoAoQuadrado_Click(object sender, EventArgs e)
-        {
-            if (!txtDisplay.Text.Trim().Equals(String.Empty))
-            {
-                numUm = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
-                numDois = 2;
-                var resultado = CalcularPotencia(numUm, numDois);
-
-                txtDisplay.Text = resultado.ToString().Replace(",", ".");
-                PressionouIgual = true;
-            }
-        }
-
-        private void btn5_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void Calculadora_Load(object sender, EventArgs e)
         {
