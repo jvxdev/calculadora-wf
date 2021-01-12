@@ -55,6 +55,7 @@ namespace Calculadora
             this.btnCE = new System.Windows.Forms.Button();
             this.btnC = new System.Windows.Forms.Button();
             this.txtDisplay = new System.Windows.Forms.TextBox();
+            this.byjvxdev = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // btn1
@@ -235,7 +236,7 @@ namespace Calculadora
             // 
             // btnIgual
             // 
-            this.btnIgual.Font = new System.Drawing.Font("Consolas", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnIgual.Font = new System.Drawing.Font("Consolas", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnIgual.Location = new System.Drawing.Point(270, 296);
             this.btnIgual.Name = "btnIgual";
             this.btnIgual.Size = new System.Drawing.Size(58, 41);
@@ -307,6 +308,7 @@ namespace Calculadora
             this.btnCE.TabIndex = 21;
             this.btnCE.Text = "CE";
             this.btnCE.UseVisualStyleBackColor = true;
+            this.btnCE.Click += new System.EventHandler(this.btnCE_Click);
             // 
             // btnC
             // 
@@ -317,6 +319,7 @@ namespace Calculadora
             this.btnC.TabIndex = 20;
             this.btnC.Text = "C";
             this.btnC.UseVisualStyleBackColor = true;
+            this.btnC.Click += new System.EventHandler(this.btnC_Click);
             // 
             // txtDisplay
             // 
@@ -330,11 +333,23 @@ namespace Calculadora
             this.txtDisplay.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             this.txtDisplay.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
+            // byjvxdev
+            // 
+            this.byjvxdev.AutoSize = true;
+            this.byjvxdev.Font = new System.Drawing.Font("Lucida Console", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.byjvxdev.Location = new System.Drawing.Point(259, 6);
+            this.byjvxdev.Name = "byjvxdev";
+            this.byjvxdev.Size = new System.Drawing.Size(68, 12);
+            this.byjvxdev.TabIndex = 26;
+            this.byjvxdev.Text = "by jvxdev";
+            this.byjvxdev.Click += new System.EventHandler(this.byjvxdev_Click);
+            // 
             // Calculadora
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(339, 361);
+            this.Controls.Add(this.byjvxdev);
             this.Controls.Add(this.txtDisplay);
             this.Controls.Add(this.btnMaisMenos);
             this.Controls.Add(this.btnRemoveUltimoDigito);
@@ -397,6 +412,7 @@ namespace Calculadora
         private System.Windows.Forms.Button btnCE;
         private System.Windows.Forms.Button btnC;
         private System.Windows.Forms.TextBox txtDisplay;
+        private System.Windows.Forms.Label byjvxdev;
     }
 }
 

@@ -21,6 +21,7 @@ namespace Calculadora
         private Double numUm;
         private Double numDois;
         private String operacao;
+        private Double resultado;
 
         private Boolean PressionouIgual;
 
@@ -29,6 +30,7 @@ namespace Calculadora
             txtDisplay.Clear();
             numUm = 0;
             numDois = 0;
+            resultado = 0;
             operacao = String.Empty;
             PressionouIgual = false;
         }
@@ -58,9 +60,21 @@ namespace Calculadora
         {
             if (!txtDisplay.Text.Trim().Equals(String.Empty))
             {
-                numUm = Convert.ToDouble(txtDisplay.Text.Trim());
+                if (txtDisplay.Text.Trim().Contains("."))
+                {
+                    numUm = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
+                }
+                else
+                {
+                    numUm = Convert.ToDouble(txtDisplay.Text.Trim());
+                }
                 operacao = caracter;
                 txtDisplay.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Informe algum valor antes!");
+                return;
             }
         }
 
@@ -77,24 +91,25 @@ namespace Calculadora
                         break;
                     }
 
-                    txtDisplay.Text = (numUm / numDois).ToString();
+                    resultado = numUm / numDois;
                     break;
 
                 case "*":
 
-                    txtDisplay.Text = (numUm * numDois).ToString();
+                    resultado = numUm * numDois;
                     break;
 
                 case "-":
 
-                    txtDisplay.Text = (numUm - numDois).ToString();
+                    resultado = numUm - numDois;
                     break;
 
                 case "+":
 
-                    txtDisplay.Text = (numUm + numDois).ToString();
+                    resultado = numUm + numDois; ;
                     break;
             }
+            txtDisplay.Text = resultado.ToString().Replace(",", ".");
         }
 
 
@@ -165,7 +180,28 @@ namespace Calculadora
 
         private void btnPonto_Click(object sender, EventArgs e)
         {
+            if (PressionouIgual)
+            {
+                txtDisplay.Text = "0.";
+                PressionouIgual = false;
+                return;
+            }
 
+
+            //Adiciona ponto na operação
+            if (txtDisplay.Text.Trim().Equals(String.Empty))
+            {
+                txtDisplay.Text = "0.";
+            }
+
+
+            //Verifica se a String . já está presente no txtDisplay
+            if (txtDisplay.Text.Trim().Contains("."))
+            {
+                return;
+            }
+
+            txtDisplay.Text = txtDisplay.Text + ".";
         }
 
 
@@ -208,9 +244,25 @@ namespace Calculadora
 
         private void btnIgual_Click(object sender, EventArgs e)
         {
+            if (PressionouIgual)
+            {
+                txtDisplay.Clear();
+                PressionouIgual = false;
+                return;
+            }
+
+
             if (!txtDisplay.Text.Trim().Equals(String.Empty))
             {
-                numDois = Convert.ToDouble(txtDisplay.Text.Trim());
+                if (txtDisplay.Text.Trim().Contains("."))
+                {
+                    numDois = Convert.ToDouble(txtDisplay.Text.Trim().Replace(".", ","));
+                }
+                else
+                {
+                    numDois = Convert.ToDouble(txtDisplay.Text.Trim());
+                }
+
                 Calcular();
 
                 PressionouIgual = true;
@@ -247,6 +299,28 @@ namespace Calculadora
             limparDisplay();
         }
 
-      
+        private void btnC_Click(object sender, EventArgs e)
+        {
+            limparDisplay();
+        }
+
+        
+        private void btnCE_Click(object sender, EventArgs e)
+        {
+            if (operacao.Equals(String.Empty) || PressionouIgual)
+            {
+                limparDisplay();
+            }
+            else
+            {
+                txtDisplay.Clear();
+            }
+        }
+
+
+        private void byjvxdev_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("github.com/jvxdev && linkedin.com/in/jvddm");
+        }
     }
 }
