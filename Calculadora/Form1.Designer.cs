@@ -376,7 +376,9 @@ namespace Calculadora
             this.Controls.Add(this.btn6);
             this.Controls.Add(this.btn2);
             this.Controls.Add(this.btn1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "Calculadora";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
